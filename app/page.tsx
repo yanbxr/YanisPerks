@@ -50,7 +50,7 @@ function PerkTable({}: PerkTableProps) {
 
   useEffect(() => {
     fetchData();
-  }, [fetchData]);
+  }, []);
 
   // Function to fetch data from the API
   async function fetchData() {
