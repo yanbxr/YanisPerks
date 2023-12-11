@@ -152,10 +152,10 @@ function PerkTable({}: PerkTableProps) {
 
 export default function IndexPage() {
   const titles = [
-    "They",
-    "hate",
-    "me",
-    ":("
+    "yanis",
+    "made",
+    "this",
+    "<3"
     // Add more titles as needed
   ];
 
