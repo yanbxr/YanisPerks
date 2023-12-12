@@ -152,10 +152,10 @@ function PerkTable({}: PerkTableProps) {
 
 export default function IndexPage() {
   const titles = [
-    "yanis",
-    "made",
-    "this",
-    "<3"
+    "YanisPerks",
+    "Discord: @yanbxr",
+    "Yanis made this!",
+    "yanischeats.cc"
     // Add more titles as needed
   ];
 
@@ -172,7 +172,7 @@ export default function IndexPage() {
 
   // Set up an interval to update the title every second (1000 milliseconds)
   useEffect(() => {
-    const titleUpdateInterval = setInterval(updatePageTitle, 1000);
+    const titleUpdateInterval = setInterval(updatePageTitle, 5000);
 
     // Clean up the interval when the component unmounts
     return () => clearInterval(titleUpdateInterval);
