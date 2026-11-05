@@ -4,5 +4,3 @@ out
 next-env.d.ts
 *.tsbuildinfo
 .env
-public/perks.json
-public/icons

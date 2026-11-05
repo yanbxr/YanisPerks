@@ -3,10 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "perks": "node --env-file-if-exists=.env scripts/fetchPerks.mjs",
-    "predev": "npm run perks",
     "dev": "next dev",
-    "prebuild": "npm run perks",
     "build": "next build",
     "start": "npx serve out",
     "typecheck": "tsc --noEmit"

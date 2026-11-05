@@ -3,8 +3,6 @@ name: Deploy to Pages
 on:
   push:
     branches: ["main"]
-  schedule:
-    - cron: "0 18 * * *"
   workflow_dispatch:
 
 permissions:
@@ -30,7 +28,7 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          BUNGIE_KEY: ${{ secrets.BUNGIE_KEY }}
+          NEXT_PUBLIC_BUNGIE_KEY: ${{ secrets.BUNGIE_KEY }}
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@v3
         with:
