@@ -15,5 +15,13 @@ const inOut = { cwd: "out" }
 run("git init -q -b gh-pages", inOut)
 run("git add -A", inOut)
 run(`git -c user.name="${name}" -c user.email="${email}" commit -q -m "Deploy ${new Date().toISOString()}"`, inOut)
-run(`git push -f ${remote} gh-pages`, inOut)
+for (let attempt = 1; ; attempt++) {
+  try {
+    run(`git push -f ${remote} gh-pages`, inOut)
+    break
+  } catch (error) {
+    if (attempt === 3) throw error
+    console.warn(`Push failed, retrying (${attempt}/3)`)
+  }
+}
 console.log(`Deployed to https://${remote.split("/").at(-2)}.github.io/${repo}/`)
