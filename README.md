@@ -18,6 +18,10 @@ Put the key in `.env` as `NEXT_PUBLIC_BUNGIE_KEY`. It is built into the page, wh
 
 ## Deploy
 
-`npm run build` exports the static site to `out/`. Upload that folder to any static host. Rebuild only when the code changes.
+The site is hosted on GitHub Pages from the `gh-pages` branch, without GitHub Actions.
 
-For GitHub Pages under `/YanisPerks/`, build with `PAGES_BASE_PATH=/YanisPerks`, or let the included GitHub Actions workflow do it with the key stored as a repository secret named `BUNGIE_KEY`.
+```bash
+npm run deploy
+```
+
+This builds the site for `/YanisPerks/`, then force-pushes the result to `gh-pages`. In the repository settings, set Pages to deploy from the `gh-pages` branch, root folder. Run it again only when the code changes; perk data updates on its own.

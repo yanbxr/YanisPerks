@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "node scripts/deploy.mjs",
     "start": "npx serve out",
     "typecheck": "tsc --noEmit"
   },
