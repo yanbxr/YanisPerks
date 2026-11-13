@@ -1,0 +1,4 @@
+:HL["/YanisPerks/_next/static/chunks/0n_tk4qazf5u6.css","style"]
+:HL["/YanisPerks/_next/static/media/4a0b7dd978568ff2-s.p.3fofz6dws3mg0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"0rgUGDm8QfEHPiuy07GNN","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
