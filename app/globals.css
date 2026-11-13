@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* Palette and type follow threepole (github.com/des-sh/threepole). */
+@theme {
+  --color-primary: #74259c;
+  --color-secondary: #592bb5;
+  --color-primary-light: #912fc2;
+  --color-secondary-light: #6c35db;
+  --color-primary-lighter: #ab4bdb;
+  --color-secondary-lighter: #8953f5;
+  --color-bg-1: #12171c;
+  --color-bg-2: #180f1c;
+  --color-error: #b53e3e;
+  --color-grey: #aaaaaa;
+  --color-soft: #dddddd;
+  --font-sans: var(--font-interTight), sans-serif;
+
+  /* Popups fade and rise in when they appear. */
+  --animate-fade-in: fade-in 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@utility bg-app {
+  /* Fixed to the viewport so sticky bars can reuse it and blend seamlessly with the page. */
+  background: linear-gradient(200deg, var(--color-bg-1), var(--color-bg-2)) fixed;
+}
+
+@utility bg-popup {
+  background: linear-gradient(90deg, var(--color-bg-1), var(--color-bg-2));
+}
+
+@utility border-gradient {
+  border-image: linear-gradient(45deg, var(--color-secondary-light), var(--color-primary-light)) 1;
+}
+
+html {
+  color-scheme: dark;
+  color: #fff;
+  background: var(--color-bg-1); /* behind overscroll/bounce areas */
+  scrollbar-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  ::selection {
+    background: var(--color-primary);
+  }
+
+  :focus,
+  :focus-visible {
+    outline: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Loader: two rings that grow and fade, half a cycle apart. */
+@keyframes ring-grow {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+@keyframes ring-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.loader-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation:
+    ring-grow 1s cubic-bezier(0, 0.2, 0.8, 1) infinite,
+    ring-fade 1s cubic-bezier(0.2, 0, 0.8, 1) infinite;
+}
+
+.loader-ring + .loader-ring {
+  animation-delay: -0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
